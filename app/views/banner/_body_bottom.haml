@@ -1,7 +1,5 @@
-<% 
--%>
-<div id="banner_area" class="banner_area">
-<div class="banner banner_<%= Setting.plugin_redmine_banner['type'] %>" id="banner_content">
+#banner_area.banner_area
+  #banner_content.banner.banner_#{Setting.plugin_redmine_banner['type']}
   <%= textilizable Setting.plugin_redmine_banner['banner_description'] %>
 </div>
 <% 

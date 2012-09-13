@@ -1,5 +1,4 @@
-<% 
-    return unless BannerHelper.is_enabled?(@project)
+-return unless BannerHelper.is_enabled?(@project)
     banner = Banner.find(:first, :conditions => ['project_id = ?', @project.id])
     return '' unless banner && banner.enable_banner?
        
