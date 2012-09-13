@@ -15,11 +15,7 @@
     {:class => 'icon banner-icon-edit', :title => l(:button_edit)})
     
     %a.icon.banner-icon-off{:href=>"#", :title=>"#{l(:banner_off)}",
-    :onclick=>"if (confirm('#{l(:text_are_you_sure)}')) { new Ajax.Updater('banner_area',
-    '#{url_for(:controller => :banner, :action => 'project_banner_off', :project_id => @project)}',
-    {asynchronous:true, evalScripts:true,
-    parameters:'authenticity_token=' + encodeURIComponent('#{form_authenticity_token}')}); };
-    hideBanner(); return false;"}
+    :onclick=>"if (confirm('#{l(:text_are_you_sure)}')) { new Ajax.Updater('banner_area','#{url_for(:controller => :banner, :action => 'project_banner_off', :project_id => @project)}',{asynchronous:true, evalScripts:true,parameters:'authenticity_token=' + encodeURIComponent('#{form_authenticity_token}')}); };hideBanner(); return false;"}
       = l(:button_off)
 
 :javascript

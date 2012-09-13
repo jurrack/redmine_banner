@@ -8,9 +8,6 @@
     {:class => 'icon banner-icon-edit', :title => l(:button_edit)}
     
   %a.icon.banner-icon-off{:href=>"#",
-  :onclick=>"if (confirm('#{l(:text_are_you_sure)}')) { new Ajax.Updater('banner_area',
-  '#{url_for(:controller => :banner, :action => 'off', :moderate => 'yes')}',
-   {asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent('#{form_authenticity_token}')}); };
-   hideBanner(); return false;",
+  :onclick=>"if (confirm('#{l(:text_are_you_sure)}')) { new Ajax.Updater('banner_area', '#{url_for(:controller => :banner, :action => 'off', :moderate => 'yes')}',{asynchronous:true, evalScripts:true, parameters:'authenticity_token=' + encodeURIComponent('#{form_authenticity_token}')}); }; hideBanner(); return false;",
   :title=>"#{l(:banner_off)}"}
     = l(:button_off)
