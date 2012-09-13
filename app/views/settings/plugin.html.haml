@@ -1,10 +1,6 @@
-<h2><%= l(:label_settings) %>: <%=h @plugin.name %></h2>
-
-<div id="settings">
-<%= form_tag({:action => 'plugin'},{:id => :plugin }) do %>
-<div class="box tabular">
-<%= render :partial => @partial, :locals => {:settings => @settings}%>
-</div>
-<%= submit_tag l(:button_apply) %>
-<% end %>
-</div>
+%h2 #{l(:label_settings)} : #{h @plugin.name}
+#settings
+= form_tag({:action => 'plugin'},{:id => :plugin }) do
+  .box.tabular
+    = render :partial => @partial, :locals => {:settings => @settings}
+  = submit_tag l(:button_apply)
