@@ -1,5 +1,5 @@
 #banner_area.banner_area
-  #banner_content.banner.banner_#{Setting.plugin_redmine_banner['type']}
+  #banner_content{:class=>"banner.banner_#{Setting.plugin_redmine_banner['type']}"}
     = textilizable Setting.plugin_redmine_banner['banner_description']
 
 -if User.current.admin? && (params[:controller] != 'settings' &&  params[:action] != 'settings' && params[:id]  != 'redmine_banner')

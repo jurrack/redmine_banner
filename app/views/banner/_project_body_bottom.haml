@@ -5,7 +5,7 @@
 -return '' unless BannerHelper.is_action_to_display?(@_controller, display_part)
 
 #project_banner_area.banner_area
-  #banner_content.banner.banner_#{banner.style}
+  #banner_content{:class=>"banner banner_#{banner.style}"}
     =textilizable banner.banner_description
  
 -if authorize_for(:banner, :edit)
