@@ -1,5 +1,5 @@
 = render :partial=>'banner/project_body_bottom'
 :javascript
   document.observe("dom:loaded", function() {
-    new Insertion.Before($('main-menu'), $('project_banner_area'));
+    new Insertion.Before($('main-menu'), $('.project_banner_area'));
   });

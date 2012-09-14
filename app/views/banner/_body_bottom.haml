@@ -1,8 +1,8 @@
-#banner_area.banner_area
-  #banner_content{:class=>"banner.banner_#{Setting.plugin_redmine_banner['type']}"}
+.banner_area
+  .banner_content{:class=>"banner banner_#{Setting.plugin_redmine_banner['type']}"}
     = textilizable Setting.plugin_redmine_banner['banner_description']
   -if User.current.admin? && (params[:controller] != 'settings' &&  params[:action] != 'settings' && params[:id]  != 'redmine_banner')
-    #banner_edit
+    .banner_edit
       = link_to l(:button_edit), {:controller => 'settings', :action => 'plugin', :id => 'redmine_banner'},
       {:class => 'icon banner-icon-edit', :title => l(:button_edit)}
     %a.icon.banner-icon-off{:href=>"#", :onclick=>"", :title=>"#{l(:banner_off)}"}= l(:button_off)

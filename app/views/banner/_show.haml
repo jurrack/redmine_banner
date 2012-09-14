@@ -2,7 +2,7 @@
   -@banner = Banner.find_or_create(@project.id)
   = labelled_form_for :settings, @banner, :url => {:controller => 'banner', :action => 'edit', :project_id => @project, :tab => 'banner', :setting_id => @banner.id}, :html => {:id => 'banner' } do |f|
     = error_messages_for 'banner'
-    #box
+    .box
       %p= f.check_box :enabled, :label => l(:button_activate)
       %p
         = content_tag(:label, l(:label_message_type))
