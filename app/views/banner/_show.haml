@@ -34,9 +34,10 @@
           :class => 'wiki-edit' ,:required => true
         %br
         = wikitoolbar_for "settings_banner_description"
-        = link_to l(:label_preview),{ :url => { :controller => 'banner', :action => 'preview', :project_id => @project},
-        :method => 'post', :id => 'banner_preview', :update => 'banner_description_preview', :remote=>true,
-        :with => "Form.serialize('banner')", :complete => "Element.scrollTo('banner_description_preview')"},
-        :accesskey => accesskey(:preview)
+        -#TODO Fix this
+        -#= link_to l(:label_preview),{ :url => { :controller => 'banner', :action => 'preview', :project_id => @project},
+        -#:method => 'post', :id => 'banner_preview', :update => 'banner_description_preview', :remote=>true,
+        -#:with => "Form.serialize('banner')", :complete => "Element.scrollTo('banner_description_preview')"},
+        -#:accesskey => accesskey(:preview)
         #banner_description_preview.wiki
     = submit_tag l(:button_save)

@@ -35,10 +35,11 @@
   %br
 
 = wikitoolbar_for "settings_banner_description"
-= link_to l(:label_preview), {:url =>{:controller => 'banner', :action => 'preview'}, :method => 'post',
-:id => 'banner_preview', :update => 'banner_description_preview', :with => "Form.serialize('plugin')",
-:complete => "Element.scrollTo('banner_description_preview')", :remote=>true},
-:accesskey => accesskey(:preview)
+-#TODO Fix This
+-#= link_to l(:label_preview), {:url =>{:controller => 'banner', :action => 'preview'}, :method => 'post',
+-#:id => 'banner_preview', :update => 'banner_description_preview', :with => "Form.serialize('plugin')",
+-#:complete => "Element.scrollTo('banner_description_preview')", :remote=>true},
+-#:accesskey => accesskey(:preview)
                        
 #banner_description_preview.wiki
   %p
