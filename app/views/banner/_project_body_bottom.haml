@@ -4,22 +4,10 @@
 -display_part = banner.display_part
 -return '' unless BannerHelper.is_action_to_display?(@_controller, display_part)
 
-.project_banner_area.banner_area
-  .banner_content{:class=>"banner banner_#{banner.style}"}
-    =textilizable banner.banner_description
- 
-  -if authorize_for(:banner, :edit)
-    .banner_edit
-      = link_to(l(:button_edit),
-      {:controller => 'projects', :action => "settings", :id => @project, :tab => 'banner'},
-      {:class => 'icon banner-icon-edit', :title => l(:button_edit)})
-      %a.icon.banner-icon-off{:href=>"#", :title=>"#{l(:banner_off)}", :onclick=>"banner_off();"}= l(:button_off)
-
 :javascript
-  document.observe("dom:loaded", function() {
-    new Insertion.Top($('content'), $('project_banner_area'));
+  jQuery(document).ready(function(){
+    $('#content h2').after('#{escape_javascript(render('banner/banner', :banner=>banner))}')
   });
-
   function banner_off(){
     if (confirm('#{l(:text_are_you_sure)}')) {
       new Ajax.Updater(

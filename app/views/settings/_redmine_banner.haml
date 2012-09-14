@@ -1,8 +1,9 @@
 :javascript
-  Event.observe(window, 'load', function() {
+  jQuery(document).ready(function() {
     var confirm_msg = "#{l(:text_are_you_sure)}";
     var date_range_error_msg = "#{l(:error_banner_date_range)}";
-    Event.observe("plugin", "submit", function(event) {checkDateRange(event, confirm_msg, date_range_error_msg);})
+    jQuery('#plugin').bind('submit', function(e){checkDateRange(event, confirm_msg, date_range_error_msg);});
+    jQuery('span.use_timer input').bind('change',(function(e){$('#banner_timer_setting').toggle();}));
   });
 
 %p
@@ -42,26 +43,24 @@
 #banner_description_preview.wiki
   %p
     =content_tag(:label, l(:label_use_timer))
-    %span.use_timer=check_box_tag 'settings[use_timer]', true, @settings['use_timer'] == "true" , :onclick => "changeView(this);"
+    %span.use_timer=check_box_tag 'settings[use_timer]', true, @settings['use_timer'] == "true"
 #banner_timer_setting{:style=>"display:#{@settings['use_timer'] == 'true' ? 'block' : 'none'}"}
   %p
     =content_tag(:label, l(:label_start_datetime))
     = text_field_tag 'settings[start_ymd]', @start_datetime.strftime("%Y-%m-%d"), :size => 10
     = select_hour @start_datetime, :prefix => 'settings', :field_name => 'start_hour',
     :time_separator => ':', :include_seconds => false
-    :
+    =':'
     = select_minute @start_datetime, :prefix => 'settings', :field_name => 'start_min', :time_separator => ':', :include_seconds => false
     = calendar_for('settings_start_ymd')
-    (exp. 2012-12-31 11:00)
     %br
-%p
-  =content_tag(:label, l(:label_end_datetime))
+  %p
+    =content_tag(:label, l(:label_end_datetime))
     = text_field_tag 'settings[end_ymd]', @end_datetime.strftime("%Y-%m-%d"), :size => 10
     = select_hour @end_datetime, :prefix => 'settings',:field_name => 'end_hour',
     :time_separator => ':', :include_seconds => false,:disabled => !@settings['use_timer'] == "true"
-    :
+    =':'
     = select_minute @end_datetime, :prefix => 'settings',:field_name => 'end_min',
     :time_separator => ':', :include_seconds => false,:disabled => !@settings['use_timer'] == "true"
     = calendar_for('settings_end_ymd')
-    (exp. 2013-01-01 11:00)
     %br

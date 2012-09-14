@@ -5,7 +5,7 @@
     .banner_edit
       = link_to l(:button_edit), {:controller => 'settings', :action => 'plugin', :id => 'redmine_banner'},
       {:class => 'icon banner-icon-edit', :title => l(:button_edit)}
-    %a.icon.banner-icon-off{:href=>"#", :onclick=>"", :title=>"#{l(:banner_off)}"}= l(:button_off)
+      %a.icon.banner-icon-off{:href=>"#", :onclick=>"", :title=>"#{l(:banner_off)}"}= l(:button_off)
 
 :javascript
   function banner_off_moderate(){

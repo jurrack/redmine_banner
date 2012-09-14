@@ -1,0 +1,9 @@
+.project_banner_area.banner_area
+  .banner_content{:class=>"banner banner_#{banner.style}"}
+    =textilizable banner.banner_description
+  -if authorize_for(:banner, :edit)
+    .banner_edit
+      = link_to(l(:button_edit),
+      {:controller => 'projects', :action => "settings", :id => @project, :tab => 'banner'},
+      {:class => 'icon banner-icon-edit', :title => l(:button_edit)})
+      %a.icon.banner-icon-off{:href=>"#", :title=>"#{l(:banner_off)}", :onclick=>"banner_off();"}= l(:button_off)

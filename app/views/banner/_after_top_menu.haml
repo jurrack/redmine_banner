@@ -1,5 +1,2 @@
-= render :partial=>'banner/body_bottom'
 :javascript
-  document.observe("dom:loaded", function() {
-    new Insertion.After($('header'), $('.banner_area'));
-  });
+  jQuery(document).ready(function(){$('#top-menu').after("#{escape_javascript(render(:partial=>'banner/body_bottom'))}");});
